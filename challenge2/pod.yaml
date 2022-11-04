@@ -3,7 +3,7 @@ apiVersion: v1
 kind: Pod
 
 metadata:
-  name: challenge1pod
+  name: challenge2pod
   labels:
     environment: development
     app: roxsross
