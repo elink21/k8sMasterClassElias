@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: deploy-challenge
+  name: elias-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: deploy-challenge
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: deploy-challenge
+    spec:
+      containers:
+      - image: roxsross12/k8s_test_web:latest
+        name: deployment-pods
+        resources: {}
+status: {}
