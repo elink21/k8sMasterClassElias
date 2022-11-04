@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+
+kind: ReplicaSet
+
+metadata:
+  name: challenge-rs
+  labels:
+    app: rs
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: rs
+
+  template:
+    metadata:
+      labels:
+        app: rs
+      
+    spec:
+      containers:
+      - name: rs-pod
+        image: roxsross12/k8s_test_web:latest
