@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: rollback-challenge
+  name: elias-deployment
+  annotations:
+    version: initial
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: rollback-challenge
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: rollback-challenge
+    spec:
+      containers:
+      - name: deployment-pods
+        image: roxsross12/k8s_test_web:v1
+        resources: {}
+        
