@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: onfireconsumer
+  name: onfireconsumer
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: onfireconsumer
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: onfireconsumer
+    spec:
+      containers:
+      - name: onfireappconsumer
+        image: elink21/onfireappconsumer
+        command: ["/bin/sh"]
+        args: ["-c","while true; do echo Your pokemon is: $(curl -X GET -s $NODE_IP:31000 | jq '.name'); sleep 5;done"]
+        env:
+        - name: NODE_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.hostIP
+status: {}

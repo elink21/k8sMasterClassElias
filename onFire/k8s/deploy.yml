@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: onfire
+  name: onfire
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: onfire
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: onfire
+    spec:
+      containers:
+      - image: elink21/onfireapp
+        name: onfireapp
+        ports:
+        - containerPort: 8000
+        resources: {}
